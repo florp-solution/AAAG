@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Стратегия развития | Alatau Advance Air Group</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <style>
+        /* Page Specific Overrides */
+        header { background-color: var(--brand-blue); position: fixed; }
+        body { padding-top: 0; background-color: #000; } /* Reset padding for full screen */
+        
+        /* Ensure Fade In works */
+        .roadmap-text-block { opacity: 0; transform: translateY(30px); transition: all 1s ease; }
+        .roadmap-text-block.is-visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+
+            <div class="logo">
+                <a href="alatau.html" style="display: block;">
+                    <img src="assets/img/AAAG_logo.svg" alt="Alatau Advance Air Group" class="logo-img">
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Меню">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <!-- Mobile Overlay Background -->
+            <div class="mobile-overlay" id="mobile-overlay"></div>
+
+            <nav id="navbar-nav">
+                <ul id="nav-menu">
+                    <li><a href="alatau.html#about" data-i18n="nav-about">О проекте</a></li>
+                    <li><a href="alatau.html#solutions" data-i18n="nav-solutions">Решения</a></li>
+                    <li><a href="roadmap.html" class="active" data-i18n="nav-roadmap">Этапы</a></li>
+                    <li><a href="alatau.html#invest" data-i18n="nav-invest">Инвесторам</a></li>
+                    <li><a href="alatau.html#contacts" data-i18n="nav-contacts">Контакты</a></li>
+                    <li><a href="news.html" data-i18n="nav-news">Новости</a></li>
+                </ul>
+                <div class="search-overlay" id="search-overlay">
+                    <input type="text" class="search-input" placeholder="Поиск..." data-i18n-placeholder="search-ph">
+                    <button class="search-close" id="search-close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </nav>
+            
+            <div class="header-actions">
+                <button class="icon-btn" id="search-btn" aria-label="Поиск">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+                <div class="accessibility-wrapper">
+                    <button id="access-btn" class="icon-btn" aria-label="Версия для слабовидящих">
+                        <i class="fa-solid fa-eye"></i>
+                    </button>
+                    <!-- Panel -->
+                    <div id="access-panel" class="access-panel">
+                        <span data-i18n="font-size">Размер шрифта:</span>
+                        <div class="font-controls">
+                            <button class="font-btn active" data-scale="1" title="Обычный">A</button>
+                            <button class="font-btn" data-scale="1.15" style="font-size: 1.2em" title="Средний">A</button>
+                            <button class="font-btn" data-scale="1.3" style="font-size: 1.4em" title="Большой">A</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lang-wrapper">
+                    <button class="current-lang" id="lang-btn">
+                        <span id="curr-lang-text">RU</span> 
+                        <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i>
+                    </button>
+                    <ul class="lang-dropdown" id="lang-dropdown">
+                        <li><a href="#" data-lang="KK">KK</a></li>
+                        <li><a href="#" data-lang="EN">EN</a></li>
+                        <li><a href="#" data-lang="RU">RU</a></li>
+                    </ul>
+                </div>
+
+                <a href="alatau.html#contacts" id="open-contact" class="btn" data-i18n="contact-btn">Связаться</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Immersive Roadmap Sections -->
+    <main class="roadmap-main">
+
+        <!-- 2025: Research -->
+        <section class="roadmap-section" style="background-image: url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=2000&auto=format&fit=crop');">
+            <div class="roadmap-overlay"></div>
+            <div class="container roadmap-content-container align-left">
+                <div class="roadmap-text-block fade-in-element">
+                    <span class="roadmap-year">2025</span>
+                    <h2 class="roadmap-title" data-i18n="rp-25-title">Исследование и Фундамент</h2>
+                    <ul class="roadmap-list">
+                        <li data-i18n="rp-25-desc-1">Исследование территории и цифровая карта Алматы.</li>
+                        <li data-i18n="rp-25-desc-2">Оценка потенциала пассажирских перевозок и маршрутной сети.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2026: Construction -->
+        <section class="roadmap-section" style="background-image: url('https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=80&w=2000&auto=format&fit=crop');">
+            <div class="roadmap-overlay"></div>
+            <div class="container roadmap-content-container align-right">
+                <div class="roadmap-text-block fade-in-element">
+                    <span class="roadmap-year">2026</span>
+                    <h2 class="roadmap-title" data-i18n="rp-26-title">Строительство и Тесты</h2>
+                    <ul class="roadmap-list">
+                        <li data-i18n="rp-26-desc-1">Строительство тестового центра в Алатау-Сити (ангар, терминал).</li>
+                        <li data-i18n="rp-26-desc-2">Первый тестовый полет аэромобиля (4 сезона испытаний).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2027: Regulation -->
+        <section class="roadmap-section" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&auto=format&fit=crop');">
+            <div class="roadmap-overlay"></div>
+            <div class="container roadmap-content-container align-left">
+                <div class="roadmap-text-block fade-in-element">
+                    <span class="roadmap-year">2027</span>
+                    <h2 class="roadmap-title" data-i18n="rp-27-title">Законы и Инфраструктура</h2>
+                    <ul class="roadmap-list">
+                        <li data-i18n="rp-27-desc-1">Разработка закона о UAM и стандартов эксплуатации.</li>
+                        <li data-i18n="rp-27-desc-2">Проектирование центрального верти-порта и сети остановок.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2028: Launch -->
+        <section class="roadmap-section" style="background-image: url('https://images.unsplash.com/photo-1464037866556-56549911f454?q=80&w=2000&auto=format&fit=crop');">
+            <div class="roadmap-overlay"></div>
+            <div class="container roadmap-content-container align-right">
+                <div class="roadmap-text-block fade-in-element">
+                    <span class="roadmap-year">2028</span>
+                    <h2 class="roadmap-title" data-i18n="rp-28-title">Запуск</h2>
+                    <ul class="roadmap-list">
+                        <li data-i18n="rp-28-desc-1">Коммерческий запуск авиалинии Alatau UAM.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="contacts">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-col">
+                    <h4 style="margin-bottom: 20px;">ALATAU ADVANCE AIR GROUP</h4>
+                    <p style="opacity: 0.8; margin-bottom: 25px; line-height: 1.6;" data-i18n="foot-desc">Мы строим будущее городской мобильности сегодня. Первый аэрокластер Центральной Азии.</p>
+                </div>
+                <!-- ... Footer simplified for update ... -->
+                <div class="footer-col" style="text-align: right; width: 100%;">
+                     <p style="font-size: 13px; opacity: 0.6;" data-i18n="foot-copy"> 2026 Alatau City Project. Все права защищены.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts (Moved for Performance) -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+    <!-- Main Logic, I18N, A11Y -->
+    <script src="assets/js/archer-animations.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Simple fade-in observer for roadmap blocks
+            const blocks = document.querySelectorAll(".roadmap-text-block");
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("is-visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.2 });
+            blocks.forEach(block => observer.observe(block));
+        });
+    </script>
+</body>
+</html>

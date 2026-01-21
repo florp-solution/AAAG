@@ -1,0 +1,461 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новости | Alatau Advance Air Group</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Using the new Archer Design System -->
+    <link rel="stylesheet" href="assets/css/archer-dark.css">
+</head>
+<body class="archer-body">
+
+    <!-- === HEADER (Unified with Home) === -->
+    <header class="archer-header">
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <a href="alatau.html" style="display: block;">
+                    <img src="assets/img/AAAG_logo.svg" alt="Alatau Advance Air Group" class="logo-img">
+                </a>
+            </div>
+
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Меню">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="mobile-overlay" id="mobile-overlay"></div>
+
+            <nav id="navbar-nav">
+                <ul id="nav-menu">
+                    <li><a href="alatau.html#about" data-i18n="nav-about">О проекте</a></li>
+                    <li><a href="alatau.html#solutions" data-i18n="nav-solutions">Решения</a></li>
+                    <li><a href="alatau.html#roadmap" data-i18n="nav-roadmap">Этапы</a></li>
+                    <li><a href="alatau.html#invest" data-i18n="nav-invest">Инвесторам</a></li>
+                    <li><a href="#contacts" data-i18n="nav-contacts">Контакты</a></li>
+                    <li><a href="news.html" class="active" data-i18n="nav-news">Новости</a></li>
+                </ul>
+                <div class="search-overlay" id="search-overlay">
+                    <input type="text" class="search-input" placeholder="Поиск..." data-i18n-placeholder="search-ph">
+                    <button class="search-close" id="search-close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </nav>
+
+            <div class="header-actions">
+                <button id="search-btn" class="icon-btn" aria-label="Поиск">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <div class="accessibility-wrapper" style="position: relative;">
+                    <button id="access-btn" class="icon-btn" aria-label="Версия для слабовидящих">
+                        <i class="fa-solid fa-eye"></i>
+                    </button>
+                    <!-- Panel -->
+                    <div id="access-panel" class="access-panel">
+                        <span data-i18n="font-size">Размер шрифта:</span>
+                        <div class="font-controls">
+                            <button class="font-btn active" data-scale="1" title="Обычный">A</button>
+                            <button class="font-btn" data-scale="1.15" style="font-size: 1.2em" title="Средний">A</button>
+                            <button class="font-btn" data-scale="1.3" style="font-size: 1.4em" title="Большой">A</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lang-wrapper">
+                    <button class="current-lang" id="lang-btn">
+                        <span id="curr-lang-text">RU</span>
+                        <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i>
+                    </button>
+                    <ul class="lang-dropdown" id="lang-dropdown">
+                        <li><a href="#" data-lang="KK">KK</a></li>
+                        <li><a href="#" data-lang="EN">EN</a></li>
+                        <li><a href="#" data-lang="RU">RU</a></li>
+                    </ul>
+                </div>
+
+                <a href="#contacts" id="open-contact" class="btn" data-i18n="contact-btn">Связаться</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- === NEWS PAGE CONTENT === -->
+    <section class="archer-page-section">
+        <!-- Background Grid Effect -->
+        <div class="roadmap-bg-grid" style="mask-image: linear-gradient(to bottom, black, transparent);"></div>
+
+        <div class="archer-page-container">
+            <header class="page-header" style="text-align: left; margin-bottom: 60px;">
+                <span class="archer-label" data-i18n="press-center">PRESS CENTER</span>
+                <h1 class="archer-page-title" data-i18n="news-title">ПОСЛЕДНИЕ НОВОСТИ</h1>
+                <p class="archer-page-subtitle" data-i18n="news-subtitle">Следите за развитием проекта Alatau City и внедрением технологий городской аэромобильности.</p>
+            </header>
+            
+            <div id="news-loading" style="display: flex; justify-content: center; padding: 50px;">
+                <div style="width: 40px; height: 40px; border: 2px solid var(--accent-cyan); border-top-color: transparent; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+            </div>
+
+            <div class="glass-grid" id="news-grid">
+                <!-- News Items will be injected here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- === FOOTER (Unified) === -->
+    <footer class="archer-footer" id="contacts">
+        <div class="container">
+            <div class="footer-top">
+                <!-- Col 1: Logo & Desc -->
+                <div class="footer-col">
+                    <img src="assets/img/AAAG_logo.svg" alt="AAAG Logo" class="footer-logo">
+                    <p class="footer-desc" data-i18n="footer-desc">
+                        Революция в городской мобильности. Безопасные, тихие и экологичные авиаперевозки для жителей Alatau City.
+                    </p>
+                </div>
+
+                <!-- Col 2: Nav -->
+                <div class="footer-col">
+                    <h4 style="margin-bottom: 20px;" data-i18n="foot-nav">Навигация</h4>
+                    <ul>
+                        <li><a href="alatau.html#about" data-i18n="nav-about">О компании</a></li>
+                        <li><a href="alatau.html#solutions" data-i18n="nav-solutions">Технологии</a></li>
+                        <li><a href="alatau.html#invest" data-i18n="nav-invest">Инвесторам</a></li>
+                        <li><a href="news.html" data-i18n="nav-news">Новости</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Contacts -->
+                <div class="footer-col">
+                    <h4 style="margin-bottom: 20px;" data-i18n="nav-contacts">Контакты</h4>
+                    <ul style="opacity: 0.8;">
+                        <li style="margin-bottom: 10px;" data-i18n="foot-addr-1">г. Алматы, ул. Толе Би, 101</li>
+                        <li style="margin-bottom: 15px;" data-i18n="foot-addr-2">7 этаж, офис AAAG</li>
+                        <li><a href="mailto:info@aaag.kz" style="color: var(--white); border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 2px;">info@aaag.kz</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Form & Socials -->
+                <div class="footer-col">
+                    <h4 class="footer-form-title" data-i18n="form-title">Есть вопросы?</h4>
+                    <p class="footer-form-desc" data-i18n="form-desc">Отправьте почту и мы свяжемся с вами!</p>
+
+                    <form id="footer-contact-form" class="footer-form" onsubmit="event.preventDefault();">
+                        <div class="footer-input-group">
+                            <input type="email" class="footer-input" placeholder="Ваш email" data-i18n-placeholder="form-ph" required>
+                            <button type="submit" class="footer-btn" data-i18n="form-btn">Отправить</button>
+                        </div>
+                    </form>
+
+                    <span class="social-label" data-i18n="social-follow">Следите за нами:</span>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/alatau_uam_center/" target="_blank" class="social-circle" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/alatau-city-project/" target="_blank" class="social-circle" aria-label="LinkedIn">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                         <a href="https://www.tiktok.com/@alataucity.project?_t=ZS-8wre2QLfvBy" target="_blank" class="social-circle" aria-label="TikTok">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </a>
+                        <a href="https://www.facebook.com/alataucity.project/" target="_blank" class="social-circle" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px;">
+                <p style="font-size: 13px; opacity: 0.6;" data-i18n="foot-copy">© 2026 Alatau City Project. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-top-btn" class="scroll-top-btn" aria-label="Наверх">
+        <i class="fa-solid fa-chevron-up"></i>
+    </button>
+    
+    <!-- Success Toast Notification -->
+    <div id="success-toast" class="success-toast">
+        <i class="fa-solid fa-circle-check"></i>
+        <span data-i18n="toast-succ">Заявка успешно отправлена</span>
+    </div>
+
+    <!-- Contact Modal -->
+    <div id="contact-modal" class="modal-overlay" aria-hidden="true">
+        <div class="modal-content contact-content">
+            <button id="contact-close" class="modal-close" aria-label="Close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="contact-header">
+                <h2 data-i18n="modal-title">Связаться с нами</h2>
+                <p data-i18n="modal-subtitle">Оставьте свои данные, и мы свяжемся с вами в ближайшее время</p>
+            </div>
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Спасибо! Ваша заявка принята.');">
+                <div class="form-group">
+                    <label data-i18n="modal-name">Ваше имя</label>
+                    <input type="text" placeholder="Иван Иванов" required>
+                </div>
+                <div class="form-group">
+                    <label data-i18n="modal-phone">Телефон / Email</label>
+                    <input type="text" placeholder="+7 (777) 000-00-00" required>
+                </div>
+                <div class="form-group">
+                    <label data-i18n="modal-msg">Сообщение</label>
+                    <textarea placeholder="..." rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn" style="width: 100%; border-radius: 4px;" data-i18n="modal-send">Отправить заявку</button>
+                <p class="policy-text" data-i18n="modal-policy">Нажимая кнопку, вы соглашаетесь с политикой обработки персональных данных</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts (Moved for Performance) -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    
+    <!-- Animation & Main Logic -->
+    <script src="assets/js/archer-animations.js"></script>
+
+    <!-- News Fetch Logic -->
+    <script>
+        // Configuration
+        const RAW_QUERY = '"AAAG" OR "Alatau Advance Air Group"';
+        const GOOGLE_NEWS_RSS_URL = `https://news.google.com/rss/search?q=${encodeURIComponent(RAW_QUERY)}&hl=ru&gl=KZ&ceid=KZ:ru`;
+        const RSS2JSON_API = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(GOOGLE_NEWS_RSS_URL);
+        
+        // Corporate News Injection (Custom Brand News)
+        const corporateNews = [
+            {
+                title: "AAAG запускает пилотную зону eVTOL в Alatau City",
+                source: "AAAG Press",
+                date: new Date().toLocaleDateString('ru-RU'),
+                image: "assets/img/placeholders/ph_5.jpg", 
+                excerpt: "Алатау Advance Air Group объявляет о готовности первой площадки для тестирования электрических аэротакси. Старт полетов запланирован на ближайший квартал.",
+                url: "alatau.html#roadmap"
+            },
+            {
+                title: "Инфраструктура AAAG готова к приему грузовых дронов нового поколения",
+                source: "AAAG Tech",
+                date: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toLocaleDateString('ru-RU'),
+                image: "assets/img/placeholders/ph_9.jpg",
+                excerpt: "Диспетчерский центр UAM завершил интеграцию систем управления воздушным трафиком для тяжелых беспилотников класса Heavy-Lift.",
+                url: "alatau.html#solutions"
+            }
+        ];
+
+        // Static Fallback News (Multilingual)
+        const STATIC_NEWS_DATA = {
+            RU: [
+                {
+                    title: "Alatau City запускает тестовую зону для eVTOL аэротакси",
+                    source: "Alatau Press",
+                    date: "15.01.2026",
+                    image: "https://images.unsplash.com/photo-1579829366248-204fe8413f31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    excerpt: "Аким города и представители AAAG объявили о начале строительства первого вертипорта в специальной экономической зоне G4 City.",
+                    url: "#"
+                },
+                {
+                    title: "Рынок воздушных такси достигнет $1.5 трлн к 2040 году",
+                    source: "Global Tech News",
+                    date: "12.01.2026",
+                    image: "https://images.unsplash.com/photo-1559825481-12a05cc00344?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    excerpt: "Аналитики Morgan Stanley прогнозируют взрывной рост индустрии Urban Air Mobility. Казахстан может стать ключевым хабом в Центральной Азии.",
+                    url: "#"
+                },
+                {
+                    title: "Joby Aviation и AAAG подписали меморандум о сотрудничестве",
+                    source: "Aviation Daily",
+                    date: "10.01.2026",
+                    image: "https://images.unsplash.com/photo-1527977966376-1c8408f9f108?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    excerpt: "Ведущий американский разработчик eVTOL рассматривает возможность локализации производства компонентов в Алматинской области.",
+                    url: "#"
+                },
+                {
+                    title: "Экологический отчет: UAM снижает выбросы CO2 на 40%",
+                    source: "Eco Journal",
+                    date: "28.12.2025",
+                    image: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    excerpt: "Исследование университета подтверждает эффективность перехода на электрический воздушный транспорт для разгрузки городских магистралей.",
+                    url: "#"
+                }
+            ],
+            EN: [
+                {
+                    title: "Alatau City Launches eVTOL Air Taxi Test Zone",
+                    source: "Alatau Press",
+                    date: "15.01.2026",
+                    image: "https://images.unsplash.com/photo-1579829366248-204fe8413f31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    excerpt: "The city major and AAAG representatives announced the start of construction of the first vertiport in the G4 City special economic zone.",
+                    url: "#"
+                },
+                {
+                    title: "Air Taxi Market to Reach $1.5 Trillion by 2040",
+                    source: "Global Tech News",
+                    date: "12.01.2026",
+                    image: "https://images.unsplash.com/photo-1559825481-12a05cc00344?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    excerpt: "Morgan Stanley analysts predict explosive growth in the Urban Air Mobility industry. Kazakhstan could become a key hub in Central Asia.",
+                    url: "#"
+                },
+                {
+                    title: "Joby Aviation and AAAG Signed Cooperation Memorandum",
+                    source: "Aviation Daily",
+                    date: "10.01.2026",
+                    image: "https://images.unsplash.com/photo-1527977966376-1c8408f9f108?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    excerpt: "Leading American eVTOL developer considers localizing component production in Almaty region.",
+                    url: "#"
+                },
+                {
+                    title: "Eco Report: UAM Reduces CO2 Emissions by 40%",
+                    source: "Eco Journal",
+                    date: "28.12.2025",
+                    image: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    excerpt: "University study confirms the efficiency of switching to electric air transport for decongesting city highways.",
+                    url: "#"
+                }
+            ],
+            KK: [
+                {
+                    title: "Alatau City eVTOL әуе таксиіне арналған сынақ аймағын іске қосуда",
+                    source: "Alatau Press",
+                    date: "15.01.2026",
+                    image: "https://images.unsplash.com/photo-1579829366248-204fe8413f31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    excerpt: "Қала әкімі мен AAAG өкілдері G4 City арнайы экономикалық аймағында алғашқы вертипорт құрылысының басталғанын жариялады.",
+                    url: "#"
+                },
+                {
+                    title: "Әуе такси нарығы 2040 жылға қарай $1.5 трлн құрайды",
+                    source: "Global Tech News",
+                    date: "12.01.2026",
+                    image: "https://images.unsplash.com/photo-1559825481-12a05cc00344?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    excerpt: "Morgan Stanley сарапшылары Urban Air Mobility индустриясының қарқынды өсуін болжайды. Қазақстан Орталық Азиядағы негізгі хабқа айналуы мүмкін.",
+                    url: "#"
+                },
+                {
+                    title: "Joby Aviation мен AAAG ынтымақтастық туралы меморандумға қол қойды",
+                    source: "Aviation Daily",
+                    date: "10.01.2026",
+                    image: "https://images.unsplash.com/photo-1527977966376-1c8408f9f108?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    excerpt: "eVTOL әзірлеушісі жетекші америкалық компания Алматы облысында компоненттер өндірісін локализациялау мүмкіндігін қарастыруда.",
+                    url: "#"
+                },
+                {
+                    title: "Экологиялық есеп: UAM CO2 шығарындыларын 40%-ға азайтады",
+                    source: "Eco Journal",
+                    date: "28.12.2025",
+                    image: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    excerpt: "Университет зерттеуі қалалық магистральдарды жеңілдету үшін электрлі әуе көлігіне көшудің тиімділігін растайды.",
+                    url: "#"
+                }
+            ]
+        };
+
+        // Fallback images if RSS feed doesn't provide them.
+        const PLACEHOLDER_IMAGES = [
+            'assets/img/placeholders/ph_1.jpg',
+            'assets/img/placeholders/ph_2.jpg',
+            'assets/img/placeholders/ph_3.jpg',
+            'assets/img/placeholders/ph_4.jpg',
+            'assets/img/placeholders/ph_5.jpg'
+        ];
+
+        const uiText = {
+            RU: { readMore: 'Читать далее' },
+            EN: { readMore: 'Read More' },
+            KK: { readMore: 'Толығырақ' }
+        };
+
+        // Date formatter helper
+        function formatDate(dateStr) {
+            try {
+                if (!dateStr) return new Date().toLocaleDateString('ru-RU');
+                const date = new Date(dateStr.replace(' ', 'T'));
+                if (!isNaN(date.getTime())) {
+                    const day = String(date.getDate()).padStart(2, '0');
+                    const month = String(date.getMonth() + 1).padStart(2, '0');
+                    const year = date.getFullYear();
+                    return `${day}.${month}.${year}`;
+                }
+                return dateStr;
+            } catch (e) {
+                return dateStr;
+            }
+        }
+
+        // --- Logic for Unique Placeholder Selection ---
+        let lastUsedPlaceholderIndex = -1;
+        function getPlaceholderImage() {
+            if (PLACEHOLDER_IMAGES.length === 0) return '';
+            if (PLACEHOLDER_IMAGES.length === 1) return PLACEHOLDER_IMAGES[0];
+            let newIndex;
+            do {
+                newIndex = Math.floor(Math.random() * PLACEHOLDER_IMAGES.length);
+            } while (newIndex === lastUsedPlaceholderIndex);
+            lastUsedPlaceholderIndex = newIndex;
+            return PLACEHOLDER_IMAGES[newIndex];
+        }
+
+        // Modified render function to accept language
+        async function fetchNews(lang) {
+            // Return language specific data
+            return STATIC_NEWS_DATA[lang] || STATIC_NEWS_DATA['RU'];
+        }
+
+        async function renderNews(lang) {
+            const grid = document.getElementById('news-grid');
+            const loader = document.getElementById('news-loading');
+            const currentUI = uiText[lang] || uiText['RU'];
+
+            // Fetch data based on language (simulated)
+            const newsItems = await fetchNews(lang);
+
+            grid.innerHTML = '';
+            if(loader) loader.style.display = 'none';
+
+            newsItems.forEach((item, index) => {
+                const card = document.createElement('a');
+                card.href = item.url;
+                card.target = item.url === '#' ? "_self" : "_blank"; 
+                card.className = 'glass-card';
+                
+                card.innerHTML = `
+                    <div class="glass-card-tag">${item.source}</div>
+                    <div class="glass-card-img-wrapper">
+                        <img src="${item.image}" alt="${item.title}" class="glass-card-img" onerror="this.onerror=null;this.src='${PLACEHOLDER_IMAGES[0]}';">
+                    </div>
+                    <div class="glass-card-content">
+                        <span class="glass-card-date">${item.date}</span>
+                        <h3>${item.title}</h3>
+                        <p>${item.excerpt}</p>
+                        <span class="glass-card-link">${currentUI.readMore}</span>
+                    </div>
+                `;
+                grid.appendChild(card); 
+                
+                // Staggered Fade In using GSAP
+                gsap.fromTo(card, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.6, delay: index * 0.1 });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+             // Initial render (checking global state if scripts overlap)
+             // setTimeout to ensure GSAP is loaded
+             setTimeout(() => {
+                const currentLang = document.documentElement.lang.toUpperCase() || 'RU';
+                renderNews(currentLang);
+             }, 100);
+
+            // Listen for language changes from archer-animations.js if it dispatches
+            document.addEventListener('languageChanged', (e) => {
+                renderNews(e.detail.lang);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alatau Advance Air Group | UAM</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/archer-dark.css">
+    
+    <!-- GSAP & Lenis moved to body for performance -->
+</head>
+<body>
+
+    <header class="archer-header">
+        <div class="container nav-wrapper">
+
+            <div class="logo">
+                <a href="#" style="display: block;">
+                    <img src="assets/img/AAAG_logo.svg" alt="Alatau Advance Air Group" class="logo-img">
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Меню">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <!-- Mobile Overlay Background -->
+            <div class="mobile-overlay" id="mobile-overlay"></div>
+
+            <nav id="navbar-nav">
+                <ul id="nav-menu">
+                    <li><a href="#about" data-i18n="nav-about">О ПРОЕКТЕ</a></li>
+                    <li><a href="#solutions" data-i18n="nav-solutions">РЕШЕНИЯ</a></li>
+                    <li><a href="roadmap.html" data-i18n="nav-roadmap">ЭТАПЫ</a></li>
+                    <li><a href="#invest" data-i18n="nav-invest">ИНВЕСТОРАМ</a></li>
+                    <li><a href="#contacts" data-i18n="nav-contacts">КОНТАКТЫ</a></li>
+                    <li><a href="news.html" data-i18n="nav-news">НОВОСТИ</a></li>
+                </ul>
+                <div class="search-overlay" id="search-overlay">
+                    <input type="text" class="search-input" placeholder="Поиск..." data-i18n-placeholder="search-ph">
+                    <button class="search-close" id="search-close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </nav>
+
+            <div class="header-actions">
+                <!-- Search (Visual only) -->
+                <button class="icon-btn" id="search-btn" aria-label="Поиск">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <!-- Accessibility -->
+                <div class="accessibility-wrapper" style="position: relative;">
+                    <button id="access-btn" class="icon-btn" aria-label="Версия для слабовидящих">
+                        <i class="fa-solid fa-eye"></i>
+                    </button>
+                    <!-- Panel -->
+                    <div id="access-panel" class="access-panel">
+                        <span data-i18n="font-size">Размер шрифта:</span>
+                        <div class="font-controls">
+                            <button class="font-btn active" data-scale="1" title="Обычный">A</button>
+                            <button class="font-btn" data-scale="1.15" style="font-size: 1.2em" title="Средний">A</button>
+                            <button class="font-btn" data-scale="1.3" style="font-size: 1.4em" title="Крупный">A</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Language -->
+                <div class="lang-wrapper">
+                    <button class="current-lang" id="lang-btn">
+                        <span id="curr-lang-text">RU</span>
+                        <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i>
+                    </button>
+                    <ul class="lang-dropdown" id="lang-dropdown">
+                        <li><a href="#" data-lang="KK">KK</a></li>
+                        <li><a href="#" data-lang="EN">EN</a></li>
+                        <li><a href="#" data-lang="RU">RU</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Btn -->
+                <a href="#" id="open-contact" class="btn" data-i18n="contact-btn">СВЯЗАТЬСЯ</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- === SECTION 1: CINEMATIC HERO === -->
+    <section class="archer-hero" id="hero">
+        <video id="hero-bg-video" class="archer-hero-video" autoplay muted loop playsinline webkit-playsinline preload="auto" src="assets/img/bgvideo.mp4">
+        </video>
+        <div class="archer-hero-overlay"></div>
+        <div class="archer-hero-content">
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                   const v = document.getElementById('hero-bg-video');
+                   if(v){
+                       v.muted = true; // Force mute again property-wise
+                       v.play().catch(err => {
+                           console.log('Autoplay blocked, waiting for interaction', err);
+                           const startPlay = () => {
+                               v.play();
+                               document.removeEventListener('click', startPlay);
+                               document.removeEventListener('touchstart', startPlay);
+                           };
+                           document.addEventListener('click', startPlay);
+                           document.addEventListener('touchstart', startPlay);
+                       });
+                   }
+                });
+            </script>
+            <h1 class="archer-hero-title">
+                <span class="hero-word" data-i18n="hero-word-1">ГОРОДСКАЯ</span>
+                <span class="hero-word" data-i18n="hero-word-2">АЭРОМОБИЛЬНОСТЬ</span>
+            </h1>
+            <p class="archer-hero-subtitle" data-i18n="hero-desc">Alatau Advance Air Group создает инфраструктуру для электрических аппаратов вертикального взлета (eVTOL)</p>
+            <div class="archer-hero-cta">
+                <a href="#" class="magnetic-btn" id="open-video-btn">
+                    <span class="magnetic-btn-text" data-i18n="hero-explore">ИССЛЕДОВАТЬ</span>
+                    <span class="magnetic-btn-circle"></span>
+                </a>
+            </div>
+        </div>
+        <div class="archer-scroll-indicator">
+            <div class="scroll-line"></div>
+            <span class="scroll-text" data-i18n="scroll-ctl">ПРОКРУТИТЕ</span>
+        </div>
+    </section>
+
+    <!-- === SECTION 2: SCROLLYTELLING CONCEPT === -->
+    <section class="archer-concept" id="concept">
+        <div class="concept-container">
+            <!-- Left: Scrollable Content -->
+            <div class="concept-content">
+                <div class="concept-block" data-highlight="safety">
+                    <span class="concept-number">01</span>
+                    <h2 class="concept-title" data-i18n="conc-safe-title">БЕЗОПАСНОСТЬ</h2>
+                    <p class="concept-text" data-i18n="conc-safe-desc">Нет единой точки отказа. 6 независимых двигателей обеспечивают полет даже при отказе одного. Каждая батарея и система зарезервированы.</p>
+                </div>
+
+                <div class="concept-block" data-highlight="ecology">
+                    <span class="concept-number">02</span>
+                    <h2 class="concept-title" data-i18n="conc-eco-title">ЭКОЛОГИЧНОСТЬ</h2>
+                    <p class="concept-text" data-i18n="conc-eco-desc">Нулевые выбросы CO₂. Полностью электрическая силовая установка делает полеты абсолютно чистыми для окружающей среды.</p>
+                </div>
+
+                <div class="concept-block" data-highlight="comfort">
+                    <span class="concept-number">03</span>
+                    <h2 class="concept-title" data-i18n="conc-comf-title">КОМФОРТ</h2>
+                    <p class="concept-text" data-i18n="conc-comf-desc">Менее 65 дБ при взлете — уровень обычного разговора. На высоте 500 м аппарат практически беззвучен благодаря низкочастотным винтам.</p>
+                </div>
+            </div>
+
+            <!-- Right: Sticky Image (Full Block) -->
+            <div class="concept-visual">
+                <div class="concept-visual-frame">
+                    <!-- Dynamic Backgrounds for Scrollytelling -->
+                    <div class="concept-drone-bg active" id="bg-safety" style="background-image: url('assets/img/Joby/Joby1.jpg');"></div>
+                    <div class="concept-drone-bg" id="bg-ecology" style="background-image: url('assets/img/Joby/Joby2.jpg');"></div>
+                    <div class="concept-drone-bg" id="bg-comfort" style="background-image: url('assets/img/Joby/Joby3.jpg');"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === SECTION 3: TECH SPECS HUD === -->
+    <section class="archer-hud" id="solutions">
+        <div class="hud-parallax-bg"></div>
+        <div class="container">
+            <div class="hud-header">
+                <span class="hud-label" data-i18n="hud-subtitle">ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ</span>
+                <h2 class="hud-title" data-i18n="hud-title">ДАННЫЕ ПРОИЗВОДИТЕЛЬНОСТИ</h2>
+            </div>
+            
+            <div class="hud-grid">
+                <div class="hud-card">
+                    <div class="hud-frame">
+                        <div class="hud-corner tl"></div>
+                        <div class="hud-corner tr"></div>
+                        <div class="hud-corner bl"></div>
+                        <div class="hud-corner br"></div>
+                    </div>
+                    <div class="hud-content">
+                        <span class="hud-value" data-target="322">0</span>
+                        <span class="hud-unit" data-i18n="unit-speed">КМ/Ч</span>
+                        <span class="hud-desc" data-i18n="stat-speed-lbl">МАКСИМАЛЬНАЯ СКОРОСТЬ</span>
+                    </div>
+                </div>
+
+                <div class="hud-card">
+                    <div class="hud-frame">
+                        <div class="hud-corner tl"></div>
+                        <div class="hud-corner tr"></div>
+                        <div class="hud-corner bl"></div>
+                        <div class="hud-corner br"></div>
+                    </div>
+                    <div class="hud-content">
+                        <span class="hud-value" data-target="65">0</span>
+                        <span class="hud-unit" data-i18n="unit-noise">дБ</span>
+                        <span class="hud-desc" data-i18n="stat-noise-lbl">УРОВЕНЬ ШУМА</span>
+                    </div>
+                </div>
+
+                <div class="hud-card">
+                    <div class="hud-frame">
+                        <div class="hud-corner tl"></div>
+                        <div class="hud-corner tr"></div>
+                        <div class="hud-corner bl"></div>
+                        <div class="hud-corner br"></div>
+                    </div>
+                    <div class="hud-content">
+                        <span class="hud-value" data-target="240">0</span>
+                        <span class="hud-unit" data-i18n="unit-range">КМ</span>
+                        <span class="hud-desc" data-i18n="stat-range-lbl">ЗАПАС ХОДА</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === SECTION 4: INTERACTIVE ROADMAP === -->
+    <section class="archer-roadmap" id="roadmap">
+        <div class="roadmap-bg-grid"></div>
+        <div class="roadmap-container">
+            <div class="roadmap-header">
+                <span class="archer-label" data-i18n="road-lbl">ГРАФИК</span>
+                <h2 class="roadmap-title" data-i18n="road-title">СТРАТЕГИЯ 2028</h2>
+                <p class="roadmap-subtitle" data-i18n="road-desc">Поэтапный план развертывания городской аэромобильности</p>
+            </div>
+
+            <div class="roadmap-wrapper">
+                <div class="roadmap-progress-line">
+                    <div class="roadmap-progress-fill"></div>
+                </div>
+
+                <div class="roadmap-scroll">
+                    <!-- 2025 -->
+                    <div class="roadmap-item">
+                        <div class="roadmap-marker"></div>
+                        <div class="roadmap-year-display">2025</div>
+                        <div class="roadmap-card">
+                            <div class="roadmap-card-header">
+                                <i class="fa-solid fa-flag-checkered"></i>
+                                <h3 data-i18n="road-25-title">ЗАПУСК & СЕРТИФИКАЦИЯ</h3>
+                            </div>
+                            <div class="roadmap-card-body">
+                                <ul class="roadmap-list">
+                                    <li data-i18n="road-25-li1">Демонстрационные полеты в Алматы</li>
+                                    <li data-i18n="road-25-li2">Сертификация первых вертипортов</li>
+                                    <li data-i18n="road-25-li3">Подписание соглашений с Joby Aviation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2026 -->
+                    <div class="roadmap-item">
+                        <div class="roadmap-marker"></div>
+                        <div class="roadmap-year-display">2026</div>
+                        <div class="roadmap-card">
+                            <div class="roadmap-card-header">
+                                <i class="fa-solid fa-route"></i>
+                                <h3 data-i18n="road-26-title">КОММЕРЧЕСКИЙ СТАРТ</h3>
+                            </div>
+                            <div class="roadmap-card-body">
+                                <ul class="roadmap-list">
+                                    <li data-i18n="road-26-li1">Запуск маршрута: Аэропорт ↔ Центр</li>
+                                    <li data-i18n="road-26-li2">Парк из 5 eVTOL аппаратов</li>
+                                    <li data-i18n="road-26-li3">Интеграция с городскими сервисами такси</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2027 -->
+                    <div class="roadmap-item">
+                        <div class="roadmap-marker"></div>
+                        <div class="roadmap-year-display">2027</div>
+                        <div class="roadmap-card">
+                            <div class="roadmap-card-header">
+                                <i class="fa-solid fa-network-wired"></i>
+                                <h3 data-i18n="road-27-title">МАСШТАБИРОВАНИЕ СЕТИ</h3>
+                            </div>
+                            <div class="roadmap-card-body">
+                                <ul class="roadmap-list">
+                                    <li data-i18n="road-27-li1">Строительство 10 новых вертипортов</li>
+                                    <li data-i18n="road-27-li2">Запуск грузовой автономной доставки</li>
+                                    <li data-i18n="road-27-li3">Снижение стоимости полета на 30%</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2028 -->
+                    <div class="roadmap-item">
+                        <div class="roadmap-marker"></div>
+                        <div class="roadmap-year-display">2028</div>
+                        <div class="roadmap-card">
+                            <div class="roadmap-card-header">
+                                <i class="fa-solid fa-globe"></i>
+                                <h3 data-i18n="road-28-title">РЕГИОНАЛЬНАЯ ЭКСПАНСИЯ</h3>
+                            </div>
+                            <div class="roadmap-card-body">
+                                <ul class="roadmap-list">
+                                    <li data-i18n="road-28-li1">Выход на маршруты Алматы ↔ Конаев</li>
+                                    <li data-i18n="road-28-li2">Хаб для Центральной Азии</li>
+                                    <li data-i18n="road-28-li3">Полная автоматизация управления трафиком</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Buffer item/padding -->
+                     <div class="roadmap-item spacer"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === SECTION 5: TEAM MARQUEE === -->
+    <section id="team" class="archer-team">
+        <div class="container">
+            <div class="archer-team-header">
+                <span class="archer-label">CORE MEMBERS</span>
+                <h2 class="archer-team-title" data-i18n="team-title">КОМАНДА AAAG GROUP</h2>
+                <p class="archer-team-subtitle" data-i18n="team-subtitle">Профессионалы, создающие будущее аэромобильности</p>
+            </div>
+        </div>
+        
+        <div class="team-marquee-wrapper">
+            <div class="team-marquee" id="team-marquee">
+                <!-- First Set -->
+                <div class="team-marquee-item">
+                    <div class="team-circle-photo">
+                        <img loading="lazy" src="assets/img/team/khegay.jpg" alt="Сергей Хегай">
+                    </div>
+                    <div class="team-circle-name">
+                        <span class="team-first-name" data-i18n="team-khegay-fname">Сергей</span>
+                        <span class="team-last-name" data-i18n="team-khegay-lname">Хегай</span>
+                    </div>
+                </div>
+
+                <div class="team-marquee-item">
+                    <div class="team-circle-photo">
+                        <img loading="lazy" src="assets/img/team/alma.jpg" alt="Алма Алигужинова">
+                    </div>
+                    <div class="team-circle-name">
+                        <span class="team-first-name" data-i18n="team-alma-fname">Алма</span>
+                        <span class="team-last-name" data-i18n="team-alma-lname">Алигужинова</span>
+                    </div>
+                </div>
+
+                <div class="team-marquee-item">
+                    <div class="team-circle-photo">
+                        <img loading="lazy" src="assets/img/team/roman.jpg" alt="Роман Богдашкин">
+                    </div>
+                    <div class="team-circle-name">
+                        <span class="team-first-name" data-i18n="team-roman-fname">Роман</span>
+                        <span class="team-last-name" data-i18n="team-roman-lname">Богдашкин</span>
+                    </div>
+                </div>
+
+                <div class="team-marquee-item">
+                    <div class="team-circle-photo">
+                        <img loading="lazy" src="assets/img/team/uteulin.jpg" alt="Данияр Утеулин">
+                    </div>
+                    <div class="team-circle-name">
+                        <span class="team-first-name" data-i18n="team-uteulin-fname">Данияр</span>
+                        <span class="team-last-name" data-i18n="team-uteulin-lname">Утеулин</span>
+                    </div>
+                </div>
+
+                <div class="team-marquee-item">
+                    <div class="team-circle-photo">
+                        <img loading="lazy" src="assets/img/team/aigul.jpg" alt="Айгуль Андабекова">
+                    </div>
+                    <div class="team-circle-name">
+                        <span class="team-first-name" data-i18n="team-aigul-fname">Айгуль</span>
+                        <span class="team-last-name" data-i18n="team-aigul-lname">Андабекова</span>
+                    </div>
+                </div>
+
+                <div class="team-marquee-item">
+                    <div class="team-circle-photo">
+                        <img loading="lazy" src="assets/img/team/yulia.jpg" alt="Юлия Бедельбаева">
+                    </div>
+                    <div class="team-circle-name">
+                        <span class="team-first-name" data-i18n="team-yulia-fname">Юлия</span>
+                        <span class="team-last-name" data-i18n="team-yulia-lname">Бедельбаева</span>
+                    </div>
+                </div>
+
+                <div class="team-marquee-item">
+                    <div class="team-circle-photo">
+                        <img loading="lazy" src="assets/img/team/kabdelova.jpg" alt="Улжан Кабделова">
+                    </div>
+                    <div class="team-circle-name">
+                        <span class="team-first-name" data-i18n="team-kabdelova-fname">Улжан</span>
+                        <span class="team-last-name" data-i18n="team-kabdelova-lname">Кабделова</span>
+                    </div>
+                </div>
+
+                <div class="team-marquee-item">
+                    <div class="team-circle-photo">
+                        <img loading="lazy" src="assets/img/team/asem.jpg" alt="Асем Биболова">
+                    </div>
+                    <div class="team-circle-name">
+                        <span class="team-first-name" data-i18n="team-asem-fname">Асем</span>
+                        <span class="team-last-name" data-i18n="team-asem-lname">Биболова</span>
+                    </div>
+                </div>
+
+                <!-- Duplicate Set for Seamless Loop -->
+                <div class="team-marquee-item">
+                    <div class="team-circle-photo">
+                        <img loading="lazy" src="assets/img/team/khegay.jpg" alt="Сергей Хегай">
+                    </div>
+                    <div class="team-circle-name">
+                        <span class="team-first-name">Сергей</span>
+                        <span class="team-last-name">Хегай</span>
+                    </div>
+                </div>
+
+                <div class="team-marquee-item">
+                    <div class="team-circle-photo">
+                        <img loading="lazy" src="assets/img/team/alma.jpg" alt="Алма Алигужинова">
+                    </div>
+                    <div class="team-circle-name">
+                        <span class="team-first-name">Алма</span>
+                        <span class="team-last-name">Алигужинова</span>
+                    </div>
+                </div>
+
+                <div class="team-marquee-item">
+                    <div class="team-circle-photo">
+                        <img loading="lazy" src="assets/img/team/roman.jpg" alt="Роман Богдашкин">
+                    </div>
+                    <div class="team-circle-name">
+                        <span class="team-first-name">Роман</span>
+                        <span class="team-last-name">Богдашкин</span>
+                    </div>
+                </div>
+
+                <div class="team-marquee-item">
+                    <div class="team-circle-photo">
+                        <img loading="lazy" src="assets/img/team/uteulin.jpg" alt="Данияр Утеулин">
+                    </div>
+                    <div class="team-circle-name">
+                        <span class="team-first-name">Данияр</span>
+                        <span class="team-last-name">Утеулин</span>
+                    </div>
+                </div>
+
+                <div class="team-marquee-item">
+                    <div class="team-circle-photo">
+                        <img loading="lazy" src="assets/img/team/aigul.jpg" alt="Айгуль Андабекова">
+                    </div>
+                    <div class="team-circle-name">
+                        <span class="team-first-name">Айгуль</span>
+                        <span class="team-last-name">Андабекова</span>
+                    </div>
+                </div>
+
+                <div class="team-marquee-item">
+                    <div class="team-circle-photo">
+                        <img loading="lazy" src="assets/img/team/yulia.jpg" alt="Юлия Бедельбаева">
+                    </div>
+                    <div class="team-circle-name">
+                        <span class="team-first-name">Юлия</span>
+                        <span class="team-last-name">Бедельбаева</span>
+                    </div>
+                </div>
+
+                <div class="team-marquee-item">
+                    <div class="team-circle-photo">
+                        <img loading="lazy" src="assets/img/team/kabdelova.jpg" alt="Улжан Кабделова">
+                    </div>
+                    <div class="team-circle-name">
+                        <span class="team-first-name">Улжан</span>
+                        <span class="team-last-name">Кабделова</span>
+                    </div>
+                </div>
+
+                <div class="team-marquee-item">
+                    <div class="team-circle-photo">
+                        <img loading="lazy" src="assets/img/team/asem.jpg" alt="Асем Биболова">
+                    </div>
+                    <div class="team-circle-name">
+                        <span class="team-first-name">Асем</span>
+                        <span class="team-last-name">Биболова</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacts">
+        <div class="container">
+            <div class="footer-top">
+                <!-- Col 1: Brand Info -->
+                <div class="footer-col">
+                    <h4 style="margin-bottom: 20px;">ALATAU ADVANCE AIR GROUP</h4>
+                    <p style="opacity: 0.8; margin-bottom: 25px; line-height: 1.6;" data-i18n="foot-desc">Революция в городской мобильности. Безопасные, тихие и экологичные авиаперевозки для жителей Alatau City.</p>
+                    <p style="color: var(--brand-accent); font-weight: 600;">Almaty, Kazakhstan</p>
+                </div>
+
+                <!-- Col 2: Navigation -->
+                <div class="footer-col">
+                    <h4 style="margin-bottom: 20px;" data-i18n="foot-nav">Навигация</h4>
+                    <ul>
+                        <li><a href="#about" data-i18n="nav-about">О проекте</a></li>
+                        <li><a href="#solutions" data-i18n="nav-solutions">Решения</a></li>
+                        <li><a href="#invest" data-i18n="nav-invest">Инвесторам</a></li>
+                        <li><a href="news.html" data-i18n="nav-news">Новости</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Contacts -->
+                <div class="footer-col">
+                    <h4 style="margin-bottom: 20px;" data-i18n="nav-contacts">Контакты</h4>
+                    <ul style="opacity: 0.8;">
+                        <li style="margin-bottom: 10px;" data-i18n="foot-addr-1">г. Алматы, ул. Толе Би, 101</li>
+                        <li style="margin-bottom: 15px;" data-i18n="foot-addr-2">7 этаж, офис AAAG</li>
+                        <li><a href="mailto:info@aaag.kz" style="color: var(--white); border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 2px;">info@aaag.kz</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Form & Socials -->
+                <div class="footer-col">
+                    <h4 class="footer-form-title" data-i18n="form-title">Есть вопросы?</h4>
+                    <p class="footer-form-desc" data-i18n="form-desc">Отправьте почту и мы свяжемся с вами!</p>
+
+                    <form id="footer-contact-form" class="footer-form" onsubmit="event.preventDefault();">
+                        <div class="footer-input-group">
+                            <input type="email" class="footer-input" placeholder="Ваш email" data-i18n-placeholder="form-ph" required>
+                            <button type="submit" class="footer-btn" data-i18n="form-btn">Отправить</button>
+                        </div>
+                    </form>
+
+                    <span class="social-label" data-i18n="social-follow">Следите за нами:</span>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/alatau_uam_center/" target="_blank" class="social-circle" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/alatau-city-project/" target="_blank" class="social-circle" aria-label="LinkedIn">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@alataucity.project?_t=ZS-8wre2QLfvBy" target="_blank" class="social-circle" aria-label="TikTok">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </a>
+                        <a href="https://www.facebook.com/alataucity.project/" target="_blank" class="social-circle" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px;">
+                <p style="font-size: 13px; opacity: 0.6;" data-i18n="foot-copy">© 2026 Alatau City Project. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Toast Notification -->
+    <div id="success-toast" class="success-toast">
+        <i class="fa-solid fa-circle-check"></i>
+        <span data-i18n="toast-succ">Заявка успешно отправлена</span>
+    </div>
+
+    <!-- Video modal -->
+    <div id="video-modal" class="video-modal" aria-hidden="true">
+        <div class="video-modal-content">
+            <button id="video-close" class="video-close" aria-label="Close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="video-wrapper">
+                <iframe id="video-iframe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div id="contact-modal" class="modal-overlay" aria-hidden="true">
+        <div class="modal-content contact-content">
+            <button id="contact-close" class="modal-close" aria-label="Close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="contact-header">
+                <h2 data-i18n="modal-title">Связаться с нами</h2>
+                <p data-i18n="modal-subtitle">Оставьте свои данные, и мы свяжемся с вами в ближайшее время</p>
+            </div>
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Отлично! Ваша заявка принята.');">
+                <div class="form-group">
+                    <label data-i18n="modal-name">Ваше имя</label>
+                    <input type="text" placeholder="Иван Иванов" required>
+                </div>
+                <div class="form-group">
+                    <label data-i18n="modal-phone">Телефон / Email</label>
+                    <input type="text" placeholder="+7 (777) 000-00-00" required>
+                </div>
+                <div class="form-group">
+                    <label data-i18n="modal-msg">Сообщение</label>
+                    <textarea placeholder="..." rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn" style="width: 100%; border-radius: 4px;" data-i18n="modal-send">Отправить заявку</button>
+                <p class="policy-text" data-i18n="modal-policy">Нажимая кнопку, вы соглашаетесь с политикой обработки персональных данных</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-top-btn" class="scroll-top-btn" aria-label="Наверх">
+        <i class="fa-solid fa-chevron-up"></i>
+    </button>
+
+    <!-- Scripts moved for optimization -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+    <script src="assets/js/archer-animations.js"></script>
+    <div id="cursor-follower" class="cursor-follower"></div>
+    <canvas id="transition-canvas"></canvas>
+</body>
+</html>
