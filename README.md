@@ -1,83 +1,104 @@
-# 🛸 AAAG: Urban Air Mobility Portal — Technical Documentation
-Alatau Advance Air Group Site
-This documentation is designed for developers and technical contributors. It describes the architecture, file structure, and technical implementation of the **Alatau Advance Air Group (AAAG)** web portal.
+# 🛸 Alatau Advance Air Group (AAAG) Web Platform
 
-This project is a high-performance, cinematic multi-page website built with the **Archer Design System**. It serves as the primary digital interface for the Alatau City UAM (Urban Air Mobility) infrastructure project, focusing on eVTOL (electric Vertical Take-Off and Landing) technology.
-
-## 🛠 Technical Stack
-
-* **Frontend:** Semantic HTML5, CSS3 (using CSS Variables for the Archer Dark theme).
-* **Animation Engine:** * `GSAP 3.12.5` — Core animation logic.
-* `ScrollTrigger` — Parallax and scrollytelling triggers.
-* `Lenis` — Smooth inertia scrolling.
-
-
-* **Icons:** FontAwesome 6.4.0.
-* **Typography:** Montserrat & Open Sans via Google Fonts.
+A specialized web interface dedicated to the **Urban Air Mobility (UAM)** ecosystem, focusing on eVTOL technology and infrastructure integration. This project provides a clean, modern, and high-performance frontend for presenting advanced aviation solutions.
 
 ---
 
-## 📂 Architecture & File Structure
+## 🛠 Tech Stack
 
-### 1. `alatau.html` (Main Landing)
-
-The main entry point featuring the core brand identity and interactive components.
-
-* **Cinematic Hero:** Uses an optimized `<video>` background with an auto-play fallback script.
-* **Scrollytelling Concept:** A sticky visual section where images swap based on the scroll position of text blocks (`#bg-safety`, `#bg-ecology`, `#bg-comfort`).
-* **HUD Tech Specs:** An interactive grid using GSAP to animate numerical values (`data-target`) from 0 to their final spec.
-* **Team Marquee:** A CSS/JS seamless loop displaying core members like Sergey Khegay and Alma Aliguzhinova.
-
-### 2. `news.html` (Press Center)
-
-A dynamic news aggregator with localization support.
-
-* **Data Fetching:** Contains logic to fetch RSS via `rss2json` (Google News RSS fallback) and merges it with `corporateNews` and `STATIC_NEWS_DATA`.
-* **Dynamic Rendering:** The `renderNews(lang)` function generates glassmorphic cards with staggered GSAP entry animations.
-
-### 3. `roadmap.html` (Strategic Timeline)
-
-An immersive full-screen experience detailing the project's phases (2025–2028).
-
-* **Layout:** Uses high-resolution background imagery for each phase with centered/aligned content blocks.
-* **Intersection Observer:** Implements a custom observer to trigger `.is-visible` classes for scroll-triggered fade-ins.
-
-### 4. `search.html` (Internal Search Engine)
-
-A client-side search interface.
-
-* **Logic:** Uses `URLSearchParams` to extract queries and filters `MOCK_DATA` (available in RU, EN, KK).
-* **UI:** Renders results in a dedicated `search-results-list` with specific tags for categories like "Technology" or "Roadmap".
+* **HTML5** - Semantic structure for high SEO and accessibility.
+* **CSS3** - Custom styling with modular architecture.
+* **JavaScript (ES6+)** - Dynamic interactions and complex UI logic.
+* **Custom Animation Engine** - Specialized scripts for smooth transitions and eVTOL-related visualizations.
 
 ---
 
-## ⚙️ Key Technical Features
+## 📂 Project Structure
 
-### 🌐 Multi-Language Support (i18n)
+The repository is organized to ensure modularity and ease of maintenance:
 
-The site uses a data-attribute system (`data-i18n`).
+```text
+.
+├── 📄 alatau.html           # Main landing page
+├── 📄 news.html             # Corporate news and updates
+├── 📄 roadmap.html          # Project development stages
+├── 📄 search.html           # Internal search functionality
+├── 📂 assets/               # Static assets
+│   ├── 📂 css/              # Stylesheets (archer-dark.css, styles.css)
+│   ├── 📂 js/               # Logic (archer-animations.js, script.js)
+│   └── 📂 img/              # Image resources and team photos
+└── 📂 instructions/         # Technical documentation and design guidelines
 
-* **Logic:** Managed in `assets/js/archer-animations.js` (referenced in all files).
-* **Event Handling:** Dispatches a custom `languageChanged` event to re-render dynamic components like news and search results.
-
-### 👁️ Accessibility (A11Y)
-
-Integrated "Vision-Impaired" version (`#access-panel`).
-
-* **Font Scaling:** Allows users to scale the UI by 1x, 1.15x, or 1.3x.
-* **Aria Labels:** Comprehensive use of `aria-label` and `aria-hidden` for modals and interactive buttons.
-
-### 🎨 Archer Design System (CSS)
-
-The project utilizes a centralized styling approach:
-
-* **Glassmorphism:** `.glass-card`, `.glass-grid`, and `.glass-result-item` provide the modern "blurred" aesthetic.
-* **Layout:** Built on a responsive `.container` system with a mobile-first approach for the `#navbar-nav`.
+```
 
 ---
 
-## 🚀 Deployment Notes
+## 🚀 Key Technical Features
 
-1. **Assets:** Ensure `assets/css/archer-dark.css` and `assets/js/archer-animations.js` are present in the root directory.
-2. **Video:** The hero video `bgvideo.mp4` should be compressed for web delivery to prevent LCP (Largest Contentful Paint) delays.
-3. **Local Storage:** The site persists language and accessibility preferences using `localStorage` keys like `archer_lang`.
+### 🔹 Advanced Animations (`archer-animations.js`)
+
+* Custom-built animation logic optimized for eVTOL aircraft visualizations.
+* GPU-accelerated transitions to ensure 60fps performance across devices.
+
+### 🔹 Adaptive UI/UX
+
+* **Mobile-First approach**: Fully responsive layouts.
+* **Dark Mode Support**: Specialized `archer-dark.css` for low-light environment viewing.
+
+### 🔹 Modular CSS
+
+* Clean separation between layout logic and thematic styling.
+* Extensive use of CSS variables for rapid branding adjustments.
+
+---
+
+## 🔧 Installation & Local Development
+
+To get the project running locally, follow these steps:
+
+1. **Clone the repository:**
+```bash
+git clone https://github.com/your-username/aaag-site.git
+
+```
+
+
+2. **Navigate to the project directory:**
+```bash
+cd aaag-site
+
+```
+
+
+3. **Launch the project:**
+Since this is a static frontend project, you can simply open `alatau.html` in your browser or use a local server like Live Server (VS Code extension).
+
+---
+
+## 📝 Coding Standards
+
+* **Naming Convention**: BEM-like structure for CSS classes.
+* **JS Logic**: Event-driven architecture.
+* **Performance**: All assets are optimized for fast loading times.
+
+---
+
+## 🤝 Contributing
+
+1. Fork the Project.
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`).
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`).
+4. Push to the Branch (`git push origin feature/AmazingFeature`).
+5. Open a Pull Request.
+
+---
+
+## 📧 Contact & Support
+
+**Project Lead:** Alatau Advance Air Group
+
+**Repository Maintained by:** Void (Voidhimself)
+
+---
+
+*Built with precision for the future of Urban Air Mobility.*
