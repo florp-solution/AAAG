@@ -1,0 +1,502 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результаты поиска | Alatau Advance Air Group</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- using archer-dark.css -->
+    <link rel="stylesheet" href="assets/css/archer-dark.css">
+</head>
+<body class="archer-body">
+
+    <!-- === HEADER (Unified with Home) === -->
+    <header class="archer-header">
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <a href="alatau.html" style="display: block;">
+                    <img src="assets/img/AAAG_logo.svg" alt="Alatau Advance Air Group" class="logo-img">
+                </a>
+            </div>
+
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Меню">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="mobile-overlay" id="mobile-overlay"></div>
+
+            <nav id="navbar-nav">
+                <ul id="nav-menu">
+                    <li><a href="alatau.html#about" data-i18n="nav-about">О проекте</a></li>
+                    <li><a href="alatau.html#solutions" data-i18n="nav-solutions">Решения</a></li>
+                    <li><a href="alatau.html#roadmap" data-i18n="nav-roadmap">Этапы</a></li>
+                    <li><a href="alatau.html#invest" data-i18n="nav-invest">Инвесторам</a></li>
+                    <li><a href="#contacts" data-i18n="nav-contacts">Контакты</a></li>
+                    <li><a href="news.html" data-i18n="nav-news">Новости</a></li>
+                </ul>
+                <div class="search-overlay" id="search-overlay">
+                    <input type="text" class="search-input" placeholder="Поиск..." data-i18n-placeholder="search-ph">
+                    <button class="search-close" id="search-close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </nav>
+
+            <div class="header-actions">
+                <button id="search-btn" class="icon-btn" aria-label="Поиск">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <div class="accessibility-wrapper" style="position: relative;">
+                    <button id="access-btn" class="icon-btn" aria-label="Версия для слабовидящих">
+                        <i class="fa-solid fa-eye"></i>
+                    </button>
+                    <!-- Panel -->
+                    <div id="access-panel" class="access-panel">
+                        <span data-i18n="font-size">Размер шрифта:</span>
+                        <div class="font-controls">
+                            <button class="font-btn active" data-scale="1" title="Обычный">A</button>
+                            <button class="font-btn" data-scale="1.15" style="font-size: 1.2em" title="Средний">A</button>
+                            <button class="font-btn" data-scale="1.3" style="font-size: 1.4em" title="Большой">A</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lang-wrapper">
+                    <button class="current-lang" id="lang-btn">
+                        <span id="curr-lang-text">RU</span>
+                        <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i>
+                    </button>
+                    <ul class="lang-dropdown" id="lang-dropdown">
+                        <li><a href="#" data-lang="KK">KK</a></li>
+                        <li><a href="#" data-lang="EN">EN</a></li>
+                        <li><a href="#" data-lang="RU">RU</a></li>
+                    </ul>
+                </div>
+
+                <a href="#contacts" id="open-contact" class="btn" data-i18n="contact-btn">Связаться</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- === SEARCH PAGE CONTENT === -->
+    <section class="archer-page-section section-hud-container">
+        <!-- Background Dot Grid -->
+        <div class="bg-grid-dots fade-bottom"></div>
+        <!-- Large Background Text -->
+        <div class="bg-text-layer filled" style="top: 20%;" aria-hidden="true">SEARCH</div>
+        <!-- HUD Corner Brackets -->
+        <div class="hud-corners" aria-hidden="true">
+            <div class="hud-corner-bracket top-left"></div>
+            <div class="hud-corner-bracket top-right"></div>
+            <div class="hud-corner-bracket bottom-left"></div>
+            <div class="hud-corner-bracket bottom-right"></div>
+        </div>
+        <span class="hud-label top-left" aria-hidden="true">SEARCH.SYSTEM</span>
+        <span class="hud-label top-right" aria-hidden="true">AAAG.DATABASE</span>
+
+        <div class="archer-page-container">
+            <header class="page-header" style="text-align: left; margin-bottom: 60px; position: relative; z-index: 2;">
+                <span class="archer-label" data-i18n="search-sys">SEARCH SYSTEM</span>
+                <h1 class="archer-page-title" data-i18n="search-title">ПОИСК AAAG</h1>
+                <p class="archer-page-subtitle" data-i18n="search-subtitle">Найдите интересующую вас информацию о проекте, технологиях и новостях.</p>
+            </header>
+
+            <div class="glass-search-input-wrapper">
+                <input type="text" id="main-search-input" class="glass-search-input" placeholder="Введите ваш запрос..." data-i18n-placeholder="search-info-init">
+                <button class="glass-search-btn" id="manual-search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+
+            <div id="search-results-info" class="results-info" style="margin-top: 30px; color: var(--text-gray);" data-i18n="search-info-init">
+                Введите запрос для поиска...
+            </div>
+
+            <div class="search-results-wrapper" id="search-results-list">
+                <!-- Results will be injected here via JS -->
+            </div>
+        </div>
+    </section>
+
+
+    <!-- === FOOTER (Unified) === -->
+    <footer class="archer-footer" id="contacts">
+        <div class="container">
+            <div class="footer-top">
+                <!-- Col 1: Logo & Desc -->
+                <div class="footer-col">
+                    <img src="assets/img/AAAG_logo.svg" alt="AAAG Logo" class="footer-logo">
+                    <p class="footer-desc" data-i18n="footer-desc">
+                        Революция в городской мобильности. Безопасные, тихие и экологичные авиаперевозки для жителей Alatau City.
+                    </p>
+                </div>
+
+                <!-- Col 2: Nav -->
+                <div class="footer-col">
+                    <h4 style="margin-bottom: 20px;" data-i18n="foot-nav">Навигация</h4>
+                    <ul>
+                        <li><a href="alatau.html#about" data-i18n="nav-about">О компании</a></li>
+                        <li><a href="alatau.html#solutions" data-i18n="nav-solutions">Технологии</a></li>
+                        <li><a href="alatau.html#invest" data-i18n="nav-invest">Инвесторам</a></li>
+                        <li><a href="news.html" data-i18n="nav-news">Новости</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Contacts -->
+                <div class="footer-col">
+                    <h4 style="margin-bottom: 20px;" data-i18n="nav-contacts">Контакты</h4>
+                    <ul style="opacity: 0.8;">
+                        <li style="margin-bottom: 10px;" data-i18n="foot-addr-1">г. Алматы, ул. Толе Би, 101</li>
+                        <li style="margin-bottom: 15px;" data-i18n="foot-addr-2">7 этаж, офис AAAG</li>
+                        <li><a href="mailto:info@aaag.kz" style="color: var(--white); border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 2px;">info@aaag.kz</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Form & Socials -->
+                <div class="footer-col">
+                    <h4 class="footer-form-title" data-i18n="form-title">Есть вопросы?</h4>
+                    <p class="footer-form-desc" data-i18n="form-desc">Отправьте почту и мы свяжемся с вами!</p>
+
+                    <form id="footer-contact-form" class="footer-form" onsubmit="event.preventDefault();">
+                        <div class="footer-input-group">
+                            <input type="email" class="footer-input" placeholder="Ваш email" data-i18n-placeholder="form-ph" required>
+                            <button type="submit" class="footer-btn" data-i18n="form-btn">Отправить</button>
+                        </div>
+                    </form>
+
+                    <span class="social-label" data-i18n="social-follow">Следите за нами:</span>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/alatau_uam_center/" target="_blank" class="social-circle" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/alatau-city-project/" target="_blank" class="social-circle" aria-label="LinkedIn">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                         <a href="https://www.tiktok.com/@alataucity.project?_t=ZS-8wre2QLfvBy" target="_blank" class="social-circle" aria-label="TikTok">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </a>
+                        <a href="https://www.facebook.com/alataucity.project/" target="_blank" class="social-circle" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px;">
+                <p style="font-size: 13px; opacity: 0.6;" data-i18n="foot-copy">© 2026 Alatau City Project. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-top-btn" class="scroll-top-btn" aria-label="Наверх">
+        <i class="fa-solid fa-chevron-up"></i>
+    </button>
+    
+    <!-- Success Toast Notification -->
+    <div id="success-toast" class="success-toast">
+        <i class="fa-solid fa-circle-check"></i>
+        <span data-i18n="toast-succ">Заявка успешно отправлена</span>
+    </div>
+
+    <!-- Contact Modal -->
+    <div id="contact-modal" class="modal-overlay" aria-hidden="true">
+        <div class="modal-content contact-content">
+            <button id="contact-close" class="modal-close" aria-label="Close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="contact-header">
+                <h2 data-i18n="modal-title">Связаться с нами</h2>
+                <p data-i18n="modal-subtitle">Оставьте свои данные, и мы свяжемся с вами в ближайшее время</p>
+            </div>
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Спасибо! Ваша заявка принята.');">
+                <div class="form-group">
+                    <label data-i18n="modal-name">Ваше имя</label>
+                    <input type="text" placeholder="Иван Иванов" required>
+                </div>
+                <div class="form-group">
+                    <label data-i18n="modal-phone">Телефон / Email</label>
+                    <input type="text" placeholder="+7 (777) 000-00-00" required>
+                </div>
+                <div class="form-group">
+                    <label data-i18n="modal-msg">Сообщение</label>
+                    <textarea placeholder="..." rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn" style="width: 100%; border-radius: 4px;" data-i18n="modal-send">Отправить заявку</button>
+                <p class="policy-text" data-i18n="modal-policy">Нажимая кнопку, вы соглашаетесь с политикой обработки персональных данных</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Animation & Main Logic -->
+    <!-- Scripts moved for performance -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="assets/js/archer-animations.js"></script>
+
+    <script>
+        // Inline Search Logic for this page
+        document.addEventListener('DOMContentLoaded', function() {
+            // GSAP Entrance
+            gsap.from('.glass-search-input-wrapper', { opacity: 0, y: 30, duration: 1, ease: 'power3.out' });
+
+            const params = new URLSearchParams(window.location.search);
+            const query = params.get('q');
+            const mainInput = document.getElementById('main-search-input');
+            const btn = document.getElementById('manual-search-btn');
+            
+            // Listen for global language change to re-trigger search or update info
+            document.addEventListener('languageChanged', (e) => {
+                if (mainInput && mainInput.value.trim() !== "") {
+                    performSearch(mainInput.value);
+                } else {
+                    const info = document.getElementById('search-results-info');
+                    const lang = e.detail.lang;
+                    if (info && typeof TRANSLATIONS !== 'undefined' && TRANSLATIONS[lang]) {
+                       info.textContent = TRANSLATIONS[lang]['search-info-init'] || 'Enter a query...';
+                    }
+                }
+            });
+
+            // Perform search if query exists in URL
+            if (query) {
+                if (mainInput) mainInput.value = query;
+                performSearch(query);
+            }
+
+            if (btn) {
+                btn.addEventListener('click', () => {
+                   if (mainInput && mainInput.value) performSearch(mainInput.value); 
+                });
+            }
+
+            if (mainInput) {
+                mainInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') performSearch(mainInput.value);
+                });
+            }
+        });
+
+            // Access translations from global scope if available, or define locally for search messages
+            function getSearchUI(lang) {
+                const ui = {
+                    RU: { found: 'По запросу «%q»: найдено результатов %n', notFound: 'По вашему запросу ничего не найдено.' },
+                    EN: { found: 'For query "%q": %n results found', notFound: 'Nothing found for your query.' },
+                    KK: { found: '«%q» сұранысы бойынша: %n нәтиже табылды', notFound: 'Сіздің сұранысыңыз бойынша ештеңе табылмады.' }
+                };
+                return ui[lang] || ui['RU'];
+            }
+
+            const MOCK_DATA = {
+                RU: [
+                    {
+                        title: "Городская аэромобильность нового поколения",
+                        tag: "Главная",
+                        img: "assets/img/placeholders/Joby.jpg",
+                        snippet: "Alatau Advance Air Group создает инфраструктуру для электрических аппаратов вертикального взлета (eVTOL). Будущее транспорта уже здесь.",
+                        url: "alatau.html#"
+                    },
+                    {
+                        title: "Инновации в движении - Проект Alatau City",
+                        tag: "О проекте",
+                        img: "assets/img/placeholders/Joby.jpg",
+                        snippet: "Urban Air Mobility (UAM) — это революционная система городского транспорта. Мы внедряем электрические летательные аппараты для перевозки пассажиров и грузов.",
+                        url: "alatau.html#about"
+                    },
+                    {
+                        title: "Нулевые выбросы CO2 и экологичность",
+                        tag: "Экология",
+                        img: "assets/img/placeholders/Joby.jpg",
+                        snippet: "Наша цель — превратить часовые пробки в комфортные 15-минутные полеты, сохраняя экологию региона благодаря нулевым выбросам CO2.",
+                        url: "alatau.html#about"
+                    },
+                    {
+                        title: "Ключевые преимущества и безопасность",
+                        tag: "Технологии",
+                        img: "assets/img/placeholders/Joby.jpg",
+                        snippet: "Тройная безопасность: дублирующие двигатели и три независимых контура управления. Акустический комфорт: 65 дБ (уровень спокойного разговора).",
+                        url: "alatau.html#solutions"
+                    },
+                    {
+                        title: "Пассажирские и грузовые перевозки",
+                        tag: "Услуги",
+                        img: "assets/img/placeholders/Joby.jpg",
+                        snippet: "Пассажирские перевозки: Аэропорт — Центр — Алатау. Срочная доставка грузов до 10 кг за 30 минут по выделенным воздушным коридорам.",
+                        url: "alatau.html#solutions"
+                    },
+                    {
+                        title: "Дорожная карта реализации (2025-2028)",
+                        tag: "Этапы",
+                        img: "assets/img/placeholders/Joby.jpg",
+                        snippet: "2025: Исследование и планирование. 2026: Строительство верти-стопов и тесты. 2028: Коммерческий запуск регулярных рейсов.",
+                        url: "roadmap.html"
+                    },
+                    {
+                        title: "Контакты и Инвесторам",
+                        tag: "Контакты",
+                        img: "assets/img/placeholders/Joby.jpg",
+                        snippet: "г. Алматы, ул. Достык 291/23, 3 этаж, офис AAAG. Мы строим будущее городской мобильности сегодня.",
+                        url: "alatau.html#contacts"
+                    }
+                ],
+                EN: [
+                    {
+                        title: "Next Generation Urban Air Mobility",
+                        tag: "Home",
+                        img: "assets/img/placeholders/Joby.jpg",
+                        snippet: "Alatau Advance Air Group is building infrastructure for electric vertical takeoff and landing (eVTOL) aircraft. The future of transport is here.",
+                        url: "alatau.html#"
+                    },
+                    {
+                        title: "Innovation in Motion - Alatau City Project",
+                        tag: "About",
+                        img: "assets/img/placeholders/Joby.jpg",
+                        snippet: "Urban Air Mobility (UAM) is a revolutionary urban transport system. We are implementing electric aircraft for passenger and cargo transport.",
+                        url: "alatau.html#about"
+                    },
+                    {
+                        title: "Zero CO2 Emissions and Ecology",
+                        tag: "Ecology",
+                        img: "assets/img/placeholders/Joby.jpg",
+                        snippet: "Our goal is to turn hour-long traffic jams into comfortable 15-minute flights while preserving the region's ecology with zero CO2 emissions.",
+                        url: "alatau.html#about"
+                    },
+                    {
+                        title: "Key Advantages and Safety",
+                        tag: "Technology",
+                        img: "assets/img/placeholders/Joby.jpg",
+                        snippet: "Triple safety: redundant motors and three independent control loops. Acoustic comfort: 65 dB (quiet conversation level).",
+                        url: "alatau.html#solutions"
+                    },
+                    {
+                        title: "Passenger and Cargo Transportation",
+                        tag: "Services",
+                        img: "assets/img/placeholders/Joby.jpg",
+                        snippet: "Passenger transport: Airport — Center — Alatau. Urgent cargo delivery up to 10 kg in 30 minutes via dedicated air corridors.",
+                        url: "alatau.html#solutions"
+                    },
+                    {
+                        title: "Implementation Roadmap (2025-2028)",
+                        tag: "Roadmap",
+                        img: "assets/img/placeholders/Joby.jpg",
+                        snippet: "2025: Research and planning. 2026: Construction of vertistops and tests. 2028: Commercial launch of regular flights.",
+                        url: "roadmap.html"
+                    },
+                    {
+                        title: "Contacts and Investors",
+                        tag: "Contacts",
+                        img: "assets/img/placeholders/Joby.jpg",
+                        snippet: "Almaty, Dostyk Ave 291/23, 3rd floor, AAAG office. We are building the future of urban mobility today.",
+                        url: "alatau.html#contacts"
+                    }
+                ],
+                KK: [
+                    {
+                        title: "Жаңа буынды қалалық аэроұтқырлық",
+                        tag: "Басты",
+                        img: "assets/img/placeholders/Joby.jpg",
+                        snippet: "Alatau Advance Air Group тік ұшып-қонатын электрлі аппараттар (eVTOL) үшін инфрақұрылым жасайды. Көлік болашағы осында.",
+                        url: "alatau.html#"
+                    },
+                    {
+                        title: "Қозғалыстағы инновациялар - Alatau City жобасы",
+                        tag: "Жоба",
+                        img: "assets/img/placeholders/Joby.jpg",
+                        snippet: "Urban Air Mobility (UAM) — бұл қалалық көліктің революциялық жүйесі. Біз жолаушылар мен жүктерді тасымалдау үшін электрлі ұшу аппараттарын енгіземіз.",
+                        url: "alatau.html#about"
+                    },
+                    {
+                        title: "CO2 нөлдік шығарындылары және экология",
+                        tag: "Экология",
+                        img: "assets/img/placeholders/Joby.jpg",
+                        snippet: "Біздің мақсатымыз — сағаттық кептелістерді жайлы 15 минуттық ұшуларға айналдыру және CO2 нөлдік шығарындылары арқылы аймақ экологиясын сақтау.",
+                        url: "alatau.html#about"
+                    },
+                    {
+                        title: "Негізгі артықшылықтар және қауіпсіздік",
+                        tag: "Технологиялар",
+                        img: "assets/img/placeholders/Joby.jpg",
+                        snippet: "Үш есе қауіпсіздік: қайталанатын қозғалтқыштар және үш тәуелсіз басқару контуры. Акустикалық жайлылық: 65 дБ (тыныш сөйлесу деңгейі).",
+                        url: "alatau.html#solutions"
+                    },
+                    {
+                        title: "Жолаушылар мен жүк тасымалы",
+                        tag: "Қызметтер",
+                        img: "assets/img/placeholders/Joby.jpg",
+                        snippet: "Жолаушылар тасымалы: Әуежай — Орталық — Алатау. Арнайы әуе дәліздері арқылы 30 минут ішінде 10 кг-ға дейінгі жүкті шұғыл жеткізу.",
+                        url: "alatau.html#solutions"
+                    },
+                    {
+                        title: "Іске асыру жол картасы (2025-2028)",
+                        tag: "Кезеңдер",
+                        img: "assets/img/placeholders/Joby.jpg",
+                        snippet: "2025: Зерттеу және жоспарлау. 2026: Верти-стоптарды салу және сынақтар. 2028: Тұрақты рейстерді коммерциялық іске қосу.",
+                        url: "roadmap.html"
+                    },
+                    {
+                        title: "Байланыс және Инвесторларға",
+                        tag: "Байланыс",
+                        img: "assets/img/placeholders/Joby.jpg",
+                        snippet: "Алматы қ., Достық даңғылы 291/23, 3 қабат, AAAG кеңсесі. Біз қалалық ұтқырлықтың болашағын бүгін құрудамыз.",
+                        url: "alatau.html#contacts"
+                    }
+                ]
+            };
+
+            function performSearch(query) {
+                const list = document.getElementById('search-results-list');
+                const info = document.getElementById('search-results-info');
+                
+                if (!list || !query) return;
+
+                const currentLang = localStorage.getItem('archer_lang') || 'RU';
+                const langData = MOCK_DATA[currentLang] || MOCK_DATA['RU'];
+                const ui = getSearchUI(currentLang);
+
+                const lowerQ = query.toLowerCase();
+                const results = langData.filter(item => 
+                    item.title.toLowerCase().includes(lowerQ) || 
+                    item.snippet.toLowerCase().includes(lowerQ) ||
+                    item.tag.toLowerCase().includes(lowerQ)
+                );
+
+                info.textContent = ui.found.replace('%q', query).replace('%n', results.length);
+
+                if (results.length === 0) {
+                    list.innerHTML = `<div style="text-align:center; padding: 40px; color: var(--text-gray);">${ui.notFound}</div>`;
+                    return;
+                }
+
+                let html = '';
+                results.forEach((item, index) => {
+                    html += `
+                        <a href="${item.url}" class="glass-result-item" style="opacity:0; transform:translateY(20px);">
+                            <img src="${item.img}" alt="${item.title}" class="glass-result-img">
+                            <div class="glass-result-content">
+                                <span style="color:var(--accent-cyan); font-size:12px; letter-spacing:1px; margin-bottom:5px;">${item.tag.toUpperCase()}</span>
+                                <h3 class="glass-result-title">${item.title}</h3>
+                                <div class="glass-result-desc">${item.snippet}</div>
+                            </div>
+                        </a>
+                    `;
+                });
+
+                list.innerHTML = html;
+
+                // Animate items
+                gsap.to('.glass-result-item', {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.5,
+                    stagger: 0.1
+                });
+            }
+    </script>
+</body>
+</html>
